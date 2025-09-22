@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   description: "秋田公立美術大学の学園祭、あきび祭2025の公式サイト",
 };
 
+export const dynamic = "force-dynamic";
+
 export default function RootLayout({
   children,
 }: Readonly<{
