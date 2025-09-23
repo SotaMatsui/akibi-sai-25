@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <section className="md:h-screen w-full md:bg-[url('/characters/background.png')] bg-cover bg-center">
         <div className="relative flex justify-center h-full w-full mt-16 md:mt-0">
           <Image
@@ -31,6 +31,6 @@ export default function Home() {
         <HeadMessageSection id="headMessage" />
         <AccessSection id="access" />
       </YellowContainer>
-    </div>
+    </>
   );
 }
