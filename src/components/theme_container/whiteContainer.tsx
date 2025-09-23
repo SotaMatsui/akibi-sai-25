@@ -3,11 +3,11 @@ import Image from "next/image";
 function WhiteContainer({ children, className, id }: { children?: React.ReactNode; className?: string; id?: string }) {
   return (
     <section
-      className={`w-full flex flex-col items-center justify-center mx-auto py-32 overflow-hidden relative ${className}`}
+      className={`w-full flex flex-col items-center justify-center mx-auto relative ${className}`}
       id={id}
     >
       {children}
-      <div className="fixed top-0 h-full max-h-screen w-full bg-white -z-10">
+      <div className="fixed top-0 h-full max-h-screen w-full bg-white -z-10 overflow-hidden">
         <Image
           src="/assets/dot-pattern-blue.svg"
           alt="テーマイラスト"

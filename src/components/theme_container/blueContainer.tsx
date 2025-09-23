@@ -11,11 +11,11 @@ async function BlueContainer({
 }) {
   return (
     <section
-      className={`w-full flex flex-col items-center justify-center mx-auto py-32 overflow-hidden relative ${className}`}
+      className={`w-full flex flex-col items-center justify-center mx-auto relative ${className}`}
       id={id}
     >
       {children}
-      <div className="fixed top-0 h-full max-h-screen w-full bg-primary -z-10">
+      <div className="fixed top-0 h-full max-h-screen w-full bg-primary -z-10 overflow-hidden">
         <div className="absolute top-0 w-full h-32 clip-wave-b bg-[#e7f5f8]" />
         <div className="absolute bottom-0 w-full h-32 clip-wave-t bg-[#e7f5f8]" />
         <Image
