@@ -26,23 +26,11 @@ export default function Home() {
           />
         </div>
       </section>
-      <div className="">
-        <div>
-          <div className="fixed top-0 pt-8 pl-8 hidden md:block">
-            <Navigation className="w-64" />
-          </div>
-        </div>
-        <div className="md:hidden p-4 fixed w-full top-0 z-10 bg-gradient-to-b via-80% from-background via-transparent to-transparent">
-          <MobileNavigation />
-        </div>
-        <div>
-          <YellowContainer className="[&>div]:min-h-screen">
-            <ThemeSection id="theme" />
-            <HeadMessageSection id="headMessage" />
-            <AccessSection id="access" />
-          </YellowContainer>
-        </div>
-      </div>
+      <YellowContainer className="[&>div]:min-h-screen">
+        <ThemeSection id="theme" />
+        <HeadMessageSection id="headMessage" />
+        <AccessSection id="access" />
+      </YellowContainer>
     </div>
   );
 }

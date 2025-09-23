@@ -11,16 +11,16 @@ function Heading({
 }) {
   return (
     <div
-      className={`flex justify-center items-end gap-2 md:gap-4 text-3xl md:text-4xl font-medium font-display ${className}`}
+      className={`flex justify-center items-center gap-2 md:gap-4 text-3xl md:text-5xl xl:text-7xl font-medium font-display ${className}`}
     >
       {side === "left" ||
         (side === "both" && (
-          <Image src="/assets/icon_primary.svg" height={32} width={32} alt="" className="w-4 md:w-8" />
+          <Image src="/assets/icon_primary.svg" height={32} width={32} alt="" className="w-4 md:w-8 xl:w-12" />
         ))}
       {children}
       {side === "right" ||
         (side === "both" && (
-          <Image src="/assets/icon_primary.svg" height={32} width={32} alt="" className="w-4 md:w-8" />
+          <Image src="/assets/icon_primary.svg" height={32} width={32} alt="" className="w-4 md:w-8 xl:w-12" />
         ))}
     </div>
   );
