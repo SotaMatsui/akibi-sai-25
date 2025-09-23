@@ -1,7 +1,8 @@
 import { MobileNavigation, Navigation } from "@/components/nav";
-import AccessSection from "@/components/sections/access";
-import HeadMessageSection from "@/components/sections/headMessage";
-import ThemeSection from "@/components/sections/theme";
+import { AccessSection } from "@/components/sections/access";
+import { HeadMessageSection } from "@/components/sections/headMessage";
+import { ThemeSection } from "@/components/sections/theme";
+import { YellowContainer } from "@/components/theme_container/yellowContainer";
 import Image from "next/image";
 
 export default function Home() {
@@ -35,9 +36,11 @@ export default function Home() {
           <MobileNavigation />
         </div>
         <div>
-          <ThemeSection id="theme" />
-          <HeadMessageSection id="head-message" />
-          <AccessSection id="access" />
+          <YellowContainer className="[&>div]:min-h-screen">
+            <ThemeSection id="theme" />
+            <HeadMessageSection id="headMessage" />
+            <AccessSection id="access" />
+          </YellowContainer>
         </div>
       </div>
     </div>
