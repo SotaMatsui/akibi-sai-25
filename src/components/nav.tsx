@@ -15,54 +15,54 @@ function Navigation({ className }: { className?: string }) {
     >
       <Image src="/logo.png" alt="Logo" width={64} height={64} />
       <li>
-        <Link href="/" className="hover:underline">
+        <Link href="/" className="hover:opacity-50">
           トップ (開催概要)
         </Link>
       </li>
       <div className="flex flex-col gap-4 pl-4 border-l-2 border-primary">
         <li>
-          <Link href="/#head-message" className="hover:underline">
+          <Link href="/#head-message" className="hover:opacity-50">
             ごあいさつ
           </Link>
         </li>
         <li>
-          <Link href="/#theme" className="hover:underline">
+          <Link href="/#theme" className="hover:opacity-50">
             2025年度テーマ「異世界のお祭り」
           </Link>
         </li>
         <li>
-          <Link href="/#access" className="hover:underline">
+          <Link href="/#access" className="hover:opacity-50">
             アクセス
           </Link>
         </li>
       </div>
       <li>
-        <Link href="/schedules" className="hover:underline">
+        <Link href="/schedules" className="hover:opacity-50">
           タイムスケジュール
         </Link>
       </li>
       <li>
-        <Link href="/maps" className="hover:underline">
+        <Link href="/maps" className="hover:opacity-50">
           マップ
         </Link>
       </li>
       <li>
-        <Link href="/events" className="hover:underline">
+        <Link href="/events" className="hover:opacity-50">
           イベント
         </Link>
       </li>
       <li>
-        <Link href="/exhibitions" className="hover:underline">
+        <Link href="/exhibitions" className="hover:opacity-50">
           展示
         </Link>
       </li>
       <li>
-        <Link href="/shops" className="hover:underline">
+        <Link href="/shops" className="hover:opacity-50">
           模擬店
         </Link>
       </li>
       <li>
-        <Link href="/sponsors" className="hover:underline">
+        <Link href="/sponsors" className="hover:opacity-50">
           協賛
         </Link>
       </li>

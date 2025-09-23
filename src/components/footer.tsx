@@ -20,7 +20,7 @@ async function Footer() {
     return null;
   }
   return (
-    <footer className="w-full text-center text-foreground bg-gray-800">
+    <footer className="w-full text-center text-primary bg-gray-800">
       <section className="bg-gray-700 py-8 space-y-4">
         <h2 className="text-md font-bold font-serif">協賛</h2>
         <div className="mx-auto max-w-5xl w-full flex flex-wrap justify-center items-center gap-8">
@@ -36,14 +36,14 @@ async function Footer() {
           ))}
         </div>
       </section>
-      <section className="py-16">
-        <div className="mx-auto max-w-5xl flex flex-col md:flex-row gap-8 justify-between items-start text-start font-bold text-sm [&_a]:pb-1 [&_a]:border-foreground [&_a:hover]:border-b-2 px-8">
+      <section className="grid gap-16 py-16">
+        <div className="mx-auto w-full max-w-5xl flex flex-col md:flex-row gap-8 justify-between items-start text-start font-bold text-sm [&_a]:pb-1 [&_a]:transition-all [&_a:hover]:opacity-50 px-8">
           <Image src="/logo.png" alt="Logo" width={64} height={64} />
           <ul className="space-y-4">
             <li>
               <Link href="/">トップ (開催概要)</Link>
             </li>
-            <div className="flex flex-col gap-4 pl-4 border-l-2 border-foreground">
+            <div className="flex flex-col gap-4 ml-2 pl-4 mb-2 pb-4 border-l-2 border-b-2 border-primary rounded-bl-lg">
               <li>
                 <Link href="/#head-message">ごあいさつ</Link>
               </li>
@@ -78,8 +78,6 @@ async function Footer() {
             </li>
           </ul>
         </div>
-      </section>
-      <section className="py-8">
         <p className="font-serif">&copy; 2025年度あきび祭実行委員会</p>
       </section>
     </footer>
