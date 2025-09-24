@@ -17,7 +17,9 @@ async function ThemeSection({
       id={id}
     >
       <Heading>「異世界のお祭り」</Heading>
-      <h2 className="text-center font-serif py-4 md:text-2xl xl:text-4xl">2025年度テーマ</h2>
+      <h2 className="text-center font-serif py-4 md:text-2xl xl:text-4xl">
+        2025年度テーマ
+      </h2>
       <p
         className="text-left pt-4 px-4 text-sm/8 font-bold max-w-5xl md:*:hidden"
         // biome-ignore lint/security/noDangerouslySetInnerHtml: using private CMS

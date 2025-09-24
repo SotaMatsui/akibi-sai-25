@@ -1,3 +1,4 @@
+import { MobileNavigation } from "@/components/nav";
 import { YellowContainer } from "@/components/theme_container/yellowContainer";
 
 export default function RootLayout({
@@ -6,8 +7,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <YellowContainer>
-      <div className="p-5">{children}</div>
-    </YellowContainer>
+    <>
+      <div className="md:hidden p-4 sticky w-full top-0 z-50 bg-gradient-to-b via-80% from-background via-transparent to-transparent">
+        <MobileNavigation />
+      </div>
+      <YellowContainer>
+        <div className="p-5">{children}</div>
+      </YellowContainer>
+    </>
   );
 }

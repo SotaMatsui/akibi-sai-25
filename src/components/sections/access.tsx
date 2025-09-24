@@ -1,12 +1,6 @@
 import { Heading } from "../headings/heading";
 
-function AccessSection({
-  className,
-  id,
-}: {
-  className?: string;
-  id?: string;
-}) {
+function AccessSection({ className, id }: { className?: string; id?: string }) {
   return (
     <div
       className={`flex flex-col items-center justify-center w-full p-4 ${className}`}

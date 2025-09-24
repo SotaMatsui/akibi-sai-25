@@ -31,11 +31,8 @@ export default function RootLayout({
     <html lang="en">
       <TypekitLoader />
       <body className={`${notoSansJp.variable} ${kaisei.variable} antialiased`}>
-            <Navigation className="fixed top-8 right-8 z-50 hidden md:block" />
-            <div className="md:hidden p-4 fixed w-full top-0 z-10 bg-gradient-to-b via-80% from-background via-transparent to-transparent">
-              <MobileNavigation />
-            </div>
-        <main className="min-h-screen">{children}</main>
+        <Navigation className="fixed top-8 right-8 z-50 hidden md:block" />
+        {children}
         <Footer />
       </body>
     </html>

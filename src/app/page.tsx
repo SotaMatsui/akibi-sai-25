@@ -8,8 +8,11 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
+      <div className="md:hidden p-4 sticky w-full top-0 z-50 bg-gradient-to-b via-80% from-background via-transparent to-transparent">
+        <MobileNavigation />
+      </div>
       <section className="md:h-screen w-full md:bg-[url('/characters/background.png')] bg-cover bg-center">
-        <div className="relative flex justify-center h-full w-full mt-16 md:mt-0">
+        <div className="relative flex justify-center h-full w-full">
           <Image
             src="/main_visual.png"
             alt="餃子ダンス人間"

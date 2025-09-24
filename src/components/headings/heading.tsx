@@ -15,12 +15,24 @@ function Heading({
     >
       {side === "left" ||
         (side === "both" && (
-          <Image src="/assets/icon_primary.svg" height={32} width={32} alt="" className="w-4 md:w-8 xl:w-12" />
+          <Image
+            src="/assets/icon_primary.svg"
+            height={32}
+            width={32}
+            alt=""
+            className="w-4 md:w-8 xl:w-12"
+          />
         ))}
       {children}
       {side === "right" ||
         (side === "both" && (
-          <Image src="/assets/icon_primary.svg" height={32} width={32} alt="" className="w-4 md:w-8 xl:w-12" />
+          <Image
+            src="/assets/icon_primary.svg"
+            height={32}
+            width={32}
+            alt=""
+            className="w-4 md:w-8 xl:w-12"
+          />
         ))}
     </div>
   );
