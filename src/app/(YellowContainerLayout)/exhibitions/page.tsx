@@ -17,7 +17,11 @@ export default async function ExhibitionsPage() {
     <div className="flex flex-col items-center gap-8 py-8">
       <Heading>展示</Heading>
       <section>
-        <ImagesCarousel images={constants.exhitibition_map_img} zoomable />
+        <ImagesCarousel
+          images={constants.exhitibition_map_img}
+          zoomable
+          variant="tertiary"
+        />
       </section>
       <section className="w-full flex flex-col items-center *:not-last:border-b *:border-foreground">
         {exhibitions.contents.map(
@@ -46,7 +50,7 @@ export default async function ExhibitionsPage() {
                   <div className="w-4 border-t border-r border-b border-foreground" />
                 </div>
               </div>
-              <ImagesCarousel images={exhibition.images} />
+              <ImagesCarousel images={exhibition.images} variant="tertiary" />
               <p>{exhibition.description}</p>
             </div>
           ),

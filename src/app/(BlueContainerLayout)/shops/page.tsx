@@ -23,7 +23,11 @@ export default async function ShopsPage() {
     <div className="flex flex-col items-center gap-8 py-8">
       <Heading>模擬店</Heading>
       <section>
-        <ImagesCarousel images={constants.exhitibition_map_img} zoomable />
+        <ImagesCarousel
+          images={constants.exhitibition_map_img}
+          zoomable
+          variant="primary"
+        />
       </section>
       <section className="w-full flex flex-col items-center">
         <div className="w-full flex flex-col items-center">
