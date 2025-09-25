@@ -2,6 +2,7 @@ import { client } from "@/lib/microcms";
 import type { MicroCMSImage } from "microcms-js-sdk";
 import Image from "next/image";
 import Link from "next/link";
+import { SponsorCarousel } from "./image_viewers/sponsor_carousel";
 
 const hasSponsors = (data: object): data is { sponsors: MicroCMSImage[] } => {
   return (
@@ -23,18 +24,7 @@ async function Footer() {
     <footer className="w-full text-center text-primary bg-gray-800">
       <section className="bg-gray-700 py-8 space-y-4">
         <h2 className="text-md font-bold font-serif">協賛</h2>
-        <div className="mx-auto max-w-5xl w-full flex flex-wrap justify-center items-center gap-8">
-          {data.sponsors.map((sponsor, index) => (
-            <Image
-              key={sponsor.url + index.toString()}
-              src={sponsor.url}
-              alt={sponsor.alt ?? "スポンサー画像"}
-              width={sponsor.width ?? 100}
-              height={sponsor.height ?? 100}
-              className="h-32 w-auto"
-            />
-          ))}
-        </div>
+        <SponsorCarousel images={data.sponsors} />
       </section>
       <section className="grid gap-16 py-16">
         <div className="mx-auto w-full max-w-5xl flex flex-col md:flex-row gap-8 justify-between items-start text-start font-bold text-sm [&_a]:pb-1 [&_a]:transition-all [&_a:hover]:opacity-50 px-8">
