@@ -2,7 +2,7 @@ import { MobileNavigation } from "@/components/nav";
 import { AccessSection } from "@/components/sections/access";
 import { HeadMessageSection } from "@/components/sections/headMessage";
 import { ThemeSection } from "@/components/sections/theme";
-import { YellowContainer } from "@/components/theme_container/yellowContainer";
+import { RedContainer } from "@/components/theme_container/redContainer";
 import { client } from "@/lib/microcms";
 import Image from "next/image";
 
@@ -46,11 +46,11 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <YellowContainer className="[&>div]:min-h-screen">
+      <RedContainer className="[&>div]:min-h-screen">
         <ThemeSection id="theme" themeMessage={constants.theme} />
         <HeadMessageSection id="headMessage" name={constants.head_name} message={constants.head_greetings} />
         <AccessSection id="access" />
-      </YellowContainer>
+      </RedContainer>
     </>
   );
 }

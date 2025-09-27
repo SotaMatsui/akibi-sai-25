@@ -11,7 +11,7 @@ async function BlueContainer({
 }) {
   return (
     <section
-      className={`w-full flex flex-col items-center justify-center mx-auto relative ${className}`}
+      className={`w-full text-tertiary-foreground flex flex-col items-center justify-center mx-auto relative ${className}`}
       id={id}
     >
       {children}
