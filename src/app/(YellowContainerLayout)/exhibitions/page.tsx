@@ -43,11 +43,11 @@ export default async function ExhibitionsPage() {
                   {String(exhibition.display_id).padStart(2, "0")}
                 </p>
                 <div className="flex justify-center gap-4">
-                  <div className="w-4 border-t border-l border-b border-foreground" />
+                  <div className="w-4 border-t-2 border-l-2 border-b-2 border-tertiary-foreground" />
                   <p className="text-2xl font-semibold font-serif py-2">
                     {exhibition.title}
                   </p>
-                  <div className="w-4 border-t border-r border-b border-foreground" />
+                  <div className="w-4 border-t-2 border-r-2 border-b-2 border-tertiary-foreground" />
                 </div>
               </div>
               <ImagesCarousel images={exhibition.images} variant="tertiary" />

@@ -32,9 +32,9 @@ export default async function ShopsPage() {
       <section className="w-full flex flex-col items-center">
         <div className="w-full flex flex-col items-center">
           <div className="flex justify-center gap-4">
-            <div className="w-4 border-t border-l border-b border-foreground" />
+            <div className="w-4 border-t-2 border-l-2 border-b-2 border-primary-foreground" />
             <p className="text-2xl font-semibold font-serif py-2">物販</p>
-            <div className="w-4 border-t border-r border-b border-foreground" />
+            <div className="w-4 border-t-2 border-r-2 border-b-2 border-primary-foreground" />
           </div>
         </div>
         {goodsShops.map((shop, index) => (
