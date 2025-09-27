@@ -3,7 +3,8 @@ import { Kaisei_Opti, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
 import TypekitLoader from "@/components/adobeFonts";
-import { MobileNavigation, Navigation } from "@/components/nav";
+import { Navigation } from "@/components/nav";
+import SmoothScroller from "@/components/lenis";
 
 const kaisei = Kaisei_Opti({
   variable: "--font-kaisei",
@@ -31,6 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <TypekitLoader />
       <body className={`${notoSansJp.variable} ${kaisei.variable} antialiased`}>
+        <SmoothScroller />
         <Navigation className="fixed top-8 right-8 z-50 hidden md:block" />
         {children}
         <Footer />

@@ -3,16 +3,20 @@ import { AccessSection } from "@/components/sections/access";
 import { HeadMessageSection } from "@/components/sections/headMessage";
 import { ThemeSection } from "@/components/sections/theme";
 import { YellowContainer } from "@/components/theme_container/yellowContainer";
+import { client } from "@/lib/microcms";
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+  const constants = await client.get({
+    endpoint: "constants",
+  });
   return (
     <>
       <div className="md:hidden p-4 sticky w-full top-0 z-50 bg-gradient-to-b via-80% from-background via-transparent to-transparent">
         <MobileNavigation />
       </div>
-      <section className="md:h-screen w-full">
-        <div className="relative flex justify-start h-full w-full -space-x-16">
+      <section className="gsap-bg-trigger md:h-screen w-full">
+        <div className="relative flex justify-start h-full w-full">
           <div className="w-full md:w-auto md:h-full p-4">
             <div className="w-full md:w-auto md:h-full rounded-4xl overflow-hidden">
               <Image
@@ -43,8 +47,8 @@ export default function Home() {
         </div>
       </section>
       <YellowContainer className="[&>div]:min-h-screen">
-        <ThemeSection id="theme" />
-        <HeadMessageSection id="headMessage" />
+        <ThemeSection id="theme" themeMessage={constants.theme} />
+        <HeadMessageSection id="headMessage" name={constants.head_name} message={constants.head_greetings} />
         <AccessSection id="access" />
       </YellowContainer>
     </>

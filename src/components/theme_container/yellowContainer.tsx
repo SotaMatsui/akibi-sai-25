@@ -1,6 +1,11 @@
+"use client";
 import Image from "next/image";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-async function YellowContainer({
+function YellowContainer({
   children,
   className,
   id,
@@ -9,10 +14,65 @@ async function YellowContainer({
   className?: string;
   id?: string;
 }) {
+  gsap.registerPlugin(useGSAP);
+  gsap.registerPlugin(ScrollTrigger);
+  const scope = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        ".gsap-sm",
+        {
+          yPercent: 0,
+        },
+        {
+          yPercent: -64,
+          scrollTrigger: {
+            trigger: ".gsap-bg-trigger",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
+      gsap.fromTo(
+        ".gsap-md",
+        {
+          yPercent: 0,
+        },
+        {
+          yPercent: -128,
+          scrollTrigger: {
+            trigger: ".gsap-bg-trigger",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
+      gsap.fromTo(
+        ".gsap-lg",
+        {
+          yPercent: 0,
+        },
+        {
+          yPercent: -192,
+          scrollTrigger: {
+            trigger: ".gsap-bg-trigger",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
+    },
+    { scope: scope }
+  ); // <-- scope is for selector text (optional)
   return (
     <section
       className={`w-full flex flex-col items-center justify-center mx-auto relative ${className}`}
       id={id}
+      ref={scope}
     >
       {children}
       <div className="fixed top-0 h-full max-h-screen w-full -z-10 overflow-hidden">
@@ -42,14 +102,14 @@ async function YellowContainer({
           alt="テーマイラスト"
           width={200}
           height={200}
-          className="absolute right-0 top-0 w-[40%] md:w-[10%] -z-10 translate-x-[18%] md:translate-x-[-120%] translate-y-[40%] rotate-180"
+          className="gsap-sm absolute right-0 top-0 w-[40%] md:w-[10%] -z-10 translate-x-[18%] md:translate-x-[-120%] translate-y-[40%] rotate-180"
         />
         <Image
           src="/assets/sparkles.svg"
           alt="テーマイラスト"
           width={200}
           height={200}
-          className="absolute right-0 top-0 w-[40%] md:w-[10%] -z-10 translate-x-[18%] md:translate-x-[-320%] translate-y-[40%] rotate-180"
+          className="gsap-md absolute right-0 top-[20%] w-[40%] md:w-[10%] -z-10 translate-x-[18%] md:translate-x-[-320%] translate-y-[40%] rotate-180"
         />
         <Image
           src="/assets/three-lines.svg"
@@ -77,7 +137,7 @@ async function YellowContainer({
           alt="テーマイラスト"
           width={200}
           height={200}
-          className="absolute left-0 bottom-0 w-[25%] md:w-[10%] -z-10 translate-x-[30%] md:translate-x-[140%] -translate-y-[60%]"
+          className="gsap-lg absolute left-0 bottom-0 w-[25%] md:w-[10%] -z-10 translate-x-[30%] md:translate-x-[140%] -translate-y-[60%]"
         />
       </div>
     </section>
