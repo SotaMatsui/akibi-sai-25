@@ -99,7 +99,7 @@ function Navigation({ className }: { className?: string }) {
 function MobileNavigation({ className }: { className?: string }) {
   return (
     <nav
-      className={`flex justify-between items-center gap-4 bg-foreground text-primary rounded-xl px-4 font-bold text-sm ${className}`}
+      className={`flex justify-between items-center gap-4 bg-foreground text-background rounded-xl px-4 font-bold text-sm ${className}`}
     >
       <Link href="/">
         <Image
