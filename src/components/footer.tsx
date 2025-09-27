@@ -21,8 +21,8 @@ async function Footer() {
     return null;
   }
   return (
-    <footer className="w-full text-center text-primary bg-gray-800">
-      <section className="bg-gray-700 py-8 space-y-4">
+    <footer className="w-full text-center text-primary bg-slate-950">
+      <section className="bg-slate-900 py-8 space-y-4">
         <h2 className="text-md font-bold font-serif">協賛</h2>
         <SponsorCarousel images={data.sponsors} />
       </section>

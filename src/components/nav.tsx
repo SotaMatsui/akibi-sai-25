@@ -83,12 +83,12 @@ function MenuSheetContent() {
 function Navigation({ className }: { className?: string }) {
   return (
     <div
-      className={`flex flex-col gap-8 bg-foreground text-white p-4 rounded-3xl ${className}`}
+      className={`flex flex-col gap-8 bg-foreground text-background p-4 rounded-lg ${className}`}
     >
       <Image src="/logo.png" alt="Logo" width={64} height={64} />
       <Sheet>
         <SheetTrigger>
-          <MenuIcon className="size-16 p-4 stroke-1" />
+          <MenuIcon className="size-16 p-4 stroke-2" />
         </SheetTrigger>
         <MenuSheetContent />
       </Sheet>
