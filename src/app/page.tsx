@@ -1,4 +1,4 @@
-import { MobileNavigation } from "@/components/nav";
+import { MobileNavigation, Navigation } from "@/components/nav";
 import { AccessSection } from "@/components/sections/access";
 import { HeadMessageSection } from "@/components/sections/headMessage";
 import { ThemeSection } from "@/components/sections/theme";
@@ -48,9 +48,14 @@ export default async function Home() {
       </section>
       <RedContainer className="[&>div]:min-h-screen">
         <ThemeSection id="theme" themeMessage={constants.theme} />
-        <HeadMessageSection id="headMessage" name={constants.head_name} message={constants.head_greetings} />
+        <HeadMessageSection
+          id="headMessage"
+          name={constants.head_name}
+          message={constants.head_greetings}
+        />
         <AccessSection id="access" />
       </RedContainer>
+      <Navigation background="var(--background)" initiallyTransparent />
     </>
   );
 }

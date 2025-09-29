@@ -1,4 +1,4 @@
-import { MobileNavigation } from "@/components/nav";
+import { MobileNavigation, Navigation } from "@/components/nav";
 import { YellowContainer } from "@/components/theme_container/yellowContainer";
 
 export default function RootLayout({
@@ -12,8 +12,9 @@ export default function RootLayout({
         <MobileNavigation />
       </div>
       <YellowContainer>
-        <div className="p-5">{children}</div>
+        <div className="p-5 min-h-screen">{children}</div>
       </YellowContainer>
+      <Navigation background="var(--tertiary)" className="text-tertiary-foreground" />
     </>
   );
 }

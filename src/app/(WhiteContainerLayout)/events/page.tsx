@@ -24,7 +24,7 @@ export default async function EventsPage() {
           ) => (
             <div
               key={event.id + index.toString()}
-              className="min-h-screen w-full flex flex-col items-center gap-4 py-4"
+              className="w-full flex flex-col items-center gap-4 py-4"
             >
               <div className="w-full flex flex-col items-center">
                 <p className="font-bold text-lg tabular-nums aspect-square rounded-full text-center translate-y-3">

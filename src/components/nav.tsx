@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Sheet,
   SheetContent,
@@ -7,6 +9,10 @@ import {
 import { MenuIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 
 function MenuSheetContent() {
   return (
@@ -80,18 +86,76 @@ function MenuSheetContent() {
     </SheetContent>
   );
 }
-function Navigation({ className }: { className?: string }) {
+function Navigation({ className, background, initiallyTransparent = false }: { className?: string, background: string, initiallyTransparent?: boolean }) {
+  gsap.registerPlugin(useGSAP);
+  gsap.registerPlugin(ScrollTrigger);
+  const scope = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        ".gsap-pin",
+        {
+          background: initiallyTransparent ? "rgba(231, 42, 41, 0)" : background,
+        },
+        {
+          background: background,
+          duration: 0.1,
+          scrollTrigger: {
+            trigger: ".gsap-pin",
+            start: "bottom bottom",
+            toggleActions: "play none none reset",
+          },
+        }
+      );
+    },
+    { scope: scope }
+  ); 
   return (
     <div
-      className={`flex flex-col gap-8 bg-foreground text-background p-4 rounded-lg ${className}`}
+      className={`sticky bottom-0 w-full z-50 hidden md:block text-foreground ${className}`}
+      ref={scope}
     >
-      <Image src="/logo.png" alt="Logo" width={64} height={64} />
-      <Sheet>
-        <SheetTrigger>
-          <MenuIcon className="size-16 p-4 stroke-2" />
-        </SheetTrigger>
-        <MenuSheetContent />
-      </Sheet>
+      <div className="gsap-pin flex justify-between w-full gap-8 p-4">
+        <div className="flex items-center gap-4"></div>
+        <ul className="flex items-center gap-8 px-8 font-display text-lg">
+          <li>
+            <Link href="/" className="hover:opacity-50">
+              トップ
+            </Link>
+          </li>
+          <li>
+            <Link href="/schedules" className="hover:opacity-50">
+              タイムスケジュール
+            </Link>
+          </li>
+          <li>
+            <Link href="/maps" className="hover:opacity-50">
+              マップ
+            </Link>
+          </li>
+          <li>
+            <Link href="/events" className="hover:opacity-50">
+              イベント
+            </Link>
+          </li>
+          <li>
+            <Link href="/exhibitions" className="hover:opacity-50">
+              展示
+            </Link>
+          </li>
+          <li>
+            <Link href="/shops" className="hover:opacity-50">
+              模擬店
+            </Link>
+          </li>
+          <li>
+            <Link href="/sponsors" className="hover:opacity-50">
+              協賛
+            </Link>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }

@@ -33,7 +33,6 @@ export default function RootLayout({
       <TypekitLoader />
       <body className={`${notoSansJp.variable} ${kaisei.variable} antialiased`}>
         <SmoothScroller />
-        <Navigation className="fixed top-8 right-8 z-50 hidden md:block" />
         {children}
         <Footer />
       </body>
