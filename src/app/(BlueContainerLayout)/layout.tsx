@@ -14,7 +14,10 @@ export default function RootLayout({
       <BlueContainer>
         <div className="p-5 min-h-screen">{children}</div>
       </BlueContainer>
-      <Navigation background="var(--primary)" className="text-primary-foreground" />
+      <Navigation
+        background="var(--primary)"
+        className="text-primary-foreground"
+      />
     </>
   );
 }

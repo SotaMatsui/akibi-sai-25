@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import {
   Sheet,
@@ -86,7 +86,15 @@ function MenuSheetContent() {
     </SheetContent>
   );
 }
-function Navigation({ className, background, initiallyTransparent = false }: { className?: string, background: string, initiallyTransparent?: boolean }) {
+function Navigation({
+  className,
+  background,
+  initiallyTransparent = false,
+}: {
+  className?: string;
+  background: string;
+  initiallyTransparent?: boolean;
+}) {
   gsap.registerPlugin(useGSAP);
   gsap.registerPlugin(ScrollTrigger);
   const scope = useRef(null);
@@ -96,7 +104,9 @@ function Navigation({ className, background, initiallyTransparent = false }: { c
       gsap.fromTo(
         ".gsap-pin",
         {
-          background: initiallyTransparent ? "rgba(231, 42, 41, 0)" : background,
+          background: initiallyTransparent
+            ? "rgba(231, 42, 41, 0)"
+            : background,
         },
         {
           background: background,
@@ -106,11 +116,11 @@ function Navigation({ className, background, initiallyTransparent = false }: { c
             start: "bottom bottom",
             toggleActions: "play none none reset",
           },
-        }
+        },
       );
     },
-    { scope: scope }
-  ); 
+    { scope: scope },
+  );
   return (
     <div
       className={`sticky bottom-0 w-full z-50 hidden md:block text-foreground ${className}`}

@@ -11,7 +11,7 @@ function Heading({
 }) {
   return (
     <div
-      className={`flex justify-center items-center gap-2 md:gap-4 text-3xl md:text-5xl xl:text-7xl font-medium font-display ${className}`}
+      className={`flex justify-center items-center gap-2 md:gap-4 text-3xl md:text-5xl xl:text-7xl py-4 font-medium font-handwriting ${className}`}
     >
       {side === "left" ||
         (side === "both" && (

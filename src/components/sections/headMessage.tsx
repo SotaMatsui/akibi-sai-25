@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -35,13 +35,13 @@ function HeadMessageSection({
             trigger: ".gsap-trigger",
             start: "top bottom",
             end: "center center",
-            scrub: true
+            scrub: true,
           },
-        }
+        },
       );
     },
-    { scope: scope }
-  ); 
+    { scope: scope },
+  );
 
   return (
     <div

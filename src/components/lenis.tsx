@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useLayoutEffect, useRef } from "react";
 import Lenis from "lenis";
-import 'lenis/dist/lenis.css'
+import "lenis/dist/lenis.css";
 
 export default function SmoothScroller() {
   const lenis = useRef<Lenis | null>(null);
@@ -13,7 +13,7 @@ export default function SmoothScroller() {
   useLayoutEffect(() => {
     lenis.current = new Lenis({
       smoothWheel: true,
-      autoRaf:true,
+      autoRaf: true,
     });
 
     return () => {

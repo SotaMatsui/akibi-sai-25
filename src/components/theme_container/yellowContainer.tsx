@@ -33,7 +33,7 @@ function YellowContainer({
             end: "bottom top",
             scrub: true,
           },
-        }
+        },
       );
       gsap.fromTo(
         ".gsap-md",
@@ -48,7 +48,7 @@ function YellowContainer({
             end: "bottom top",
             scrub: true,
           },
-        }
+        },
       );
       gsap.fromTo(
         ".gsap-lg",
@@ -63,10 +63,10 @@ function YellowContainer({
             end: "bottom top",
             scrub: true,
           },
-        }
+        },
       );
     },
-    { scope: scope }
+    { scope: scope },
   );
   return (
     <section

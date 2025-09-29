@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -27,8 +27,8 @@ function ThemeSection({
         end: "+=450",
       });
     },
-    { scope: scope }
-  ); 
+    { scope: scope },
+  );
 
   return (
     <div className={`py-32 md:pb-96 ${className}`} id={id} ref={scope}>

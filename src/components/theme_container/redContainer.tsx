@@ -33,7 +33,7 @@ function RedContainer({
             end: "bottom top",
             scrub: true,
           },
-        }
+        },
       );
       gsap.fromTo(
         ".gsap-md",
@@ -48,7 +48,7 @@ function RedContainer({
             end: "bottom top",
             scrub: true,
           },
-        }
+        },
       );
       gsap.fromTo(
         ".gsap-lg",
@@ -63,10 +63,10 @@ function RedContainer({
             end: "bottom top",
             scrub: true,
           },
-        }
+        },
       );
     },
-    { scope: scope }
+    { scope: scope },
   ); // <-- scope is for selector text (optional)
   return (
     <section

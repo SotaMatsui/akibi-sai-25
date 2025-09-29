@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -23,8 +23,8 @@ function AccessSection({ className, id }: { className?: string; id?: string }) {
         },
       });
     },
-    { scope: scope }
-  ); 
+    { scope: scope },
+  );
 
   return (
     <div className="w-full" ref={scope}>
