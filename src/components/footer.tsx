@@ -4,12 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { SponsorCarousel } from "./image_viewers/sponsor_carousel";
 
-const hasSponsors = (data: object): data is { sponsors: MicroCMSImage[] } => {
+const hasSponsors = (
+  data: object,
+): data is { sponsors_higher: MicroCMSImage[] } => {
   return (
-    "sponsors" in data &&
-    Array.isArray(data.sponsors) &&
-    data.sponsors.length > 0 &&
-    "url" in data.sponsors[0]
+    "sponsors_higher" in data &&
+    Array.isArray(data.sponsors_higher) &&
+    data.sponsors_higher.length > 0 &&
+    "url" in data.sponsors_higher[0]
   );
 };
 
@@ -24,7 +26,7 @@ async function Footer() {
     <footer className="w-full text-center text-primary bg-slate-950">
       <section className="bg-slate-900 py-8 space-y-4">
         <h2 className="text-md font-bold font-serif">協賛</h2>
-        <SponsorCarousel images={data.sponsors} />
+        <SponsorCarousel images={data.sponsors_higher} />
       </section>
       <section className="grid gap-16 py-16">
         <div className="mx-auto w-full max-w-5xl flex flex-col md:flex-row gap-8 justify-between items-start text-start font-bold text-sm [&_a]:pb-1 [&_a]:transition-all [&_a:hover]:opacity-50 px-8">

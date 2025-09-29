@@ -49,7 +49,7 @@
 
 :root {
   --radius: 0.625rem;
-  --background: #e72928;
+  --background: #43d3c1;
   --foreground: var(--color-orange-100);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -57,7 +57,7 @@
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.89 0.04 209.83);
   --primary-foreground: oklch(0.31 0.03 258.97);
-  --secondary: #e72928;
+  --secondary: #d3540e;
   --secondary-foreground: oklch(0.205 0 0);
   --tertiary: #e0c33b;
   --tertiary-foreground: oklch(0.31 0.03 258.97);

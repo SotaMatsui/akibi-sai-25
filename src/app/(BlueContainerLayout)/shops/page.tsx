@@ -2,6 +2,7 @@ import { Heading } from "@/components/headings/heading";
 import { ImagesCarousel } from "@/components/image_viewers/image_carousel";
 import { client } from "@/lib/microcms";
 import type { Shop } from "@/types/shop";
+import Image from "next/image";
 
 export default async function ShopsPage() {
   const constants = await client.get({
@@ -37,24 +38,30 @@ export default async function ShopsPage() {
             <Heading>物販</Heading>
           </div>
           {goodsShops.map((shop, index) => (
-            <div
-              key={shop.id + index.toString()}
-              className="w-full flex flex-col items-start gap-4 py-4"
-            >
-              <div className="flex justify-center gap-4">
-                <div className="w-4 border-t-2 border-l-2 border-b-2 border-primary-foreground" />
-                <p className="text-2xl font-semibold font-serif py-2">
-                  {shop.shop_name}
-                </p>
-                <div className="w-4 border-t-2 border-r-2 border-b-2 border-primary-foreground" />
-              </div>
-              <p
-                className="font-bold text-lg"
-                // biome-ignore lint/security/noDangerouslySetInnerHtml: using private CMS
-                dangerouslySetInnerHTML={{
-                  __html: `${shop.short_description.replace(/\n/g, "<br />")}`,
-                }}
+            <div className="flex gap-4 py-4" key={shop.id + index.toString()}>
+              <Image
+                src={shop.icon_img?.url ?? "/logo.png"}
+                alt={shop.shop_name}
+                width={64}
+                height={64}
+                className="size-32 object-cover rounded-lg border-2 border-primary-foreground flex-shrink-0"
               />
+              <div className="w-full flex flex-col items-start gap-4">
+                <div className="flex justify-center gap-4">
+                  <div className="w-4 border-t-2 border-l-2 border-b-2 border-primary-foreground" />
+                  <p className="text-2xl font-semibold font-serif py-2">
+                    {shop.shop_name}
+                  </p>
+                  <div className="w-4 border-t-2 border-r-2 border-b-2 border-primary-foreground" />
+                </div>
+                <p
+                  className="font-bold text-lg"
+                  // biome-ignore lint/security/noDangerouslySetInnerHtml: using private CMS
+                  dangerouslySetInnerHTML={{
+                    __html: `${shop.short_description.replace(/\n/g, "<br />")}`,
+                  }}
+                />
+              </div>
             </div>
           ))}
         </section>
@@ -63,24 +70,30 @@ export default async function ShopsPage() {
             <Heading>飲食</Heading>
           </div>
           {foodShops.map((shop, index) => (
-            <div
-              key={shop.id + index.toString()}
-              className="w-full flex flex-col items-start gap-4 py-4"
-            >
-              <div className="flex justify-center gap-4">
-                <div className="w-4 border-t-2 border-l-2 border-b-2 border-primary-foreground" />
-                <p className="text-2xl font-semibold font-serif py-2">
-                  {shop.shop_name}
-                </p>
-                <div className="w-4 border-t-2 border-r-2 border-b-2 border-primary-foreground" />
-              </div>
-              <p
-                className="font-bold text-lg"
-                // biome-ignore lint/security/noDangerouslySetInnerHtml: using private CMS
-                dangerouslySetInnerHTML={{
-                  __html: `${shop.short_description.replace(/\n/g, "<br />")}`,
-                }}
+            <div className="flex gap-4 py-4" key={shop.id + index.toString()}>
+              <Image
+                src={shop.icon_img?.url ?? "/logo.png"}
+                alt={shop.shop_name}
+                width={64}
+                height={64}
+                className="size-32 object-cover rounded-lg border-2 border-primary-foreground flex-shrink-0"
               />
+              <div className="w-full flex flex-col items-start gap-4">
+                <div className="flex justify-center gap-4">
+                  <div className="w-4 border-t-2 border-l-2 border-b-2 border-primary-foreground" />
+                  <p className="text-2xl font-semibold font-serif py-2">
+                    {shop.shop_name}
+                  </p>
+                  <div className="w-4 border-t-2 border-r-2 border-b-2 border-primary-foreground" />
+                </div>
+                <p
+                  className="font-bold text-lg"
+                  // biome-ignore lint/security/noDangerouslySetInnerHtml: using private CMS
+                  dangerouslySetInnerHTML={{
+                    __html: `${shop.short_description.replace(/\n/g, "<br />")}`,
+                  }}
+                />
+              </div>
             </div>
           ))}
         </section>
