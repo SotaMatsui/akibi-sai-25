@@ -58,7 +58,7 @@ export default async function ShopsPage() {
                   className="font-bold text-lg"
                   // biome-ignore lint/security/noDangerouslySetInnerHtml: using private CMS
                   dangerouslySetInnerHTML={{
-                    __html: `${shop.short_description.replace(/\n/g, "<br />")}`,
+                    __html: `${shop.long_description.replace(/\n/g, "<br />")}`,
                   }}
                 />
               </div>
@@ -90,7 +90,7 @@ export default async function ShopsPage() {
                   className="font-bold text-lg"
                   // biome-ignore lint/security/noDangerouslySetInnerHtml: using private CMS
                   dangerouslySetInnerHTML={{
-                    __html: `${shop.short_description.replace(/\n/g, "<br />")}`,
+                    __html: `${shop.long_description.replace(/\n/g, "<br />")}`,
                   }}
                 />
               </div>

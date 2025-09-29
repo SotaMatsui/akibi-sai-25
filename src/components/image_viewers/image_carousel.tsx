@@ -16,17 +16,10 @@ function ImagesCarousel({
   zoomable?: boolean;
   variant?: "white" | "primary" | "secondary" | "tertiary";
 }) {
-  const colorVariables = {
-    white: "var(--color-white)",
-    primary: "var(--color-primary)",
-    secondary: "var(--color-secondary)",
-    tertiary: "var(--color-tertiary)",
-  };
-  const mixedColor = `color-mix(in_oklab,black,${colorVariables[variant]}_95%)`;
   return (
     <Carousel
       opts={{ loop: true }}
-      className={`flex flex-col items-center bg-[${mixedColor}] rounded-2xl overflow-hidden`}
+      className={`flex flex-col items-center bg-${variant} rounded-2xl overflow-hidden border-2 border-${variant}-foreground`}
     >
       <CarouselContent>
         {images.map((image: MicroCMSImage, index: number) => (

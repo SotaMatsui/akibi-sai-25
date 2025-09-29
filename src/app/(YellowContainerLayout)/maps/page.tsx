@@ -10,15 +10,19 @@ export default async function MapPage() {
     return <p>設定が正しく行われていません</p>;
   }
   return (
-    <div className="flex flex-col items-center gap-8 py-8">
-      <Heading>マップ</Heading>
-      <section>
-        <ImagesCarousel
-          images={constants.map_img}
-          zoomable
-          variant="tertiary"
-        />
-      </section>
+    <div className="flex gap-32">
+      <div className="h-screen flex items-center sticky top-0">
+        <p className="text-[10rem] font-medium font-display">マップ</p>
+      </div>
+      <div className="min-h-screen flex flex-col items-center justify-center gap-16 py-8 max-w-3xl">
+        <section>
+          <ImagesCarousel
+            images={constants.map_img}
+            zoomable
+            variant="tertiary"
+          />
+        </section>
+      </div>
     </div>
   );
 }

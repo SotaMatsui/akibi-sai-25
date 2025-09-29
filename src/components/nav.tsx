@@ -53,28 +53,23 @@ function MenuSheetContent() {
           </li>
         </div>
         <li>
-          <Link href="/schedules" className="hover:opacity-50">
-            タイムスケジュール
-          </Link>
-        </li>
-        <li>
           <Link href="/maps" className="hover:opacity-50">
             マップ
           </Link>
         </li>
         <li>
-          <Link href="/events" className="hover:opacity-50">
-            イベント
-          </Link>
-        </li>
-        <li>
-          <Link href="/exhibitions" className="hover:opacity-50">
-            展示
+          <Link href="/schedules" className="hover:opacity-50">
+            イベントスケジュール
           </Link>
         </li>
         <li>
           <Link href="/shops" className="hover:opacity-50">
             模擬店
+          </Link>
+        </li>
+        <li>
+          <Link href="/exhibitions" className="hover:opacity-50">
+            展示
           </Link>
         </li>
         <li>
@@ -135,28 +130,23 @@ function Navigation({
             </Link>
           </li>
           <li>
-            <Link href="/schedules" className="hover:opacity-50">
-              タイムスケジュール
-            </Link>
-          </li>
-          <li>
             <Link href="/maps" className="hover:opacity-50">
               マップ
             </Link>
           </li>
           <li>
-            <Link href="/events" className="hover:opacity-50">
-              イベント
-            </Link>
-          </li>
-          <li>
-            <Link href="/exhibitions" className="hover:opacity-50">
-              展示
+            <Link href="/schedules" className="hover:opacity-50">
+              イベントスケジュール
             </Link>
           </li>
           <li>
             <Link href="/shops" className="hover:opacity-50">
               模擬店
+            </Link>
+          </li>
+          <li>
+            <Link href="/exhibitions" className="hover:opacity-50">
+              展示
             </Link>
           </li>
           <li>

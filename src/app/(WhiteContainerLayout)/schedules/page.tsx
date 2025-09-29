@@ -18,19 +18,68 @@ export default async function SchedulePage() {
   const constants = await client.get({
     endpoint: "constants",
   });
-  if (!constants || !hasScheduleImages(constants)) {
+  const events = await client.getList({
+    endpoint: "events",
+  });
+  if (!constants || !hasScheduleImages(constants) || !events) {
     return <p>設定が正しく行われていません</p>;
   }
   return (
-    <div className="flex flex-col items-center gap-8 py-8">
-      <Heading>タイムスケジュール</Heading>
-      <section>
-        <ImagesCarousel
-          images={constants.timeschedule_img}
-          zoomable
-          variant="white"
-        />
-      </section>
+    <div className="flex gap-32">
+      <div className="h-screen flex items-center sticky top-0">
+        <p className="text-[6rem] leading-[6rem] font-medium font-display">
+          イベント
+          <br />
+          スケジュール
+        </p>
+      </div>
+      <div className="flex flex-col items-start gap-16 py-8 max-w-3xl">
+        <section>
+          <ImagesCarousel
+            images={constants.timeschedule_img}
+            zoomable
+            variant="white"
+          />
+        </section>
+        <section className="w-full mx-auto max-w-5xl flex flex-col items-center *:not-last:border-b *:border-foreground">
+          {events.contents.map(
+            (
+              event: {
+                id: string;
+                organization: string;
+                name: string;
+                description: string;
+              },
+              index: number,
+            ) => (
+              <div
+                key={event.id + index.toString()}
+                className="w-full flex flex-col items-start gap-4 py-4"
+              >
+                <div className="w-full flex flex-col items-start">
+                  <div className="flex justify-center gap-4 relative">
+                    <div className="w-4 border-t-2 border-l-2 border-b-2 border-tertiary-foreground" />
+                    <p className="absolute top-0 w-full font-bold text-lg tabular-nums rounded-full text-center -translate-y-5">
+                      {String(index).padStart(2, "0")}
+                    </p>
+                    <p className="text-2xl font-semibold font-serif py-2">
+                      {event.name}
+                    </p>
+                    <div className="w-4 border-t-2 border-r-2 border-b-2 border-tertiary-foreground" />
+                  </div>
+                </div>
+                <p
+                  // biome-ignore lint/security/noDangerouslySetInnerHtml: using private CMS
+                  dangerouslySetInnerHTML={{
+                    __html: `${event.description.replace(/\n/g, "<br />")}`,
+                  }}
+                  className="font-medium"
+                />
+              </div>
+            ),
+          )}
+        </section>
+      </div>
     </div>
   );
 }

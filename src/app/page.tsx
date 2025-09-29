@@ -2,7 +2,7 @@ import { MobileNavigation, Navigation } from "@/components/nav";
 import { AccessSection } from "@/components/sections/access";
 import { HeadMessageSection } from "@/components/sections/headMessage";
 import { ThemeSection } from "@/components/sections/theme";
-import { RedContainer } from "@/components/theme_container/redContainer";
+import { YellowContainer } from "@/components/theme_container/yellowContainer";
 import { client } from "@/lib/microcms";
 import Image from "next/image";
 
@@ -30,7 +30,7 @@ export default async function Home() {
           </div>
           <div className="grow hidden md:flex justify-center items-center p-4">
             <Image
-              src="/text-logo-white.svg"
+              src="/text-logo-colored.svg"
               alt="あきび祭2025ロゴ"
               width={1030 / 2}
               height={1677 / 2}
@@ -46,7 +46,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <RedContainer className="[&>div]:min-h-screen">
+      <YellowContainer className="[&>div]:min-h-screen">
         <ThemeSection id="theme" themeMessage={constants.theme} />
         <HeadMessageSection
           id="headMessage"
@@ -54,7 +54,7 @@ export default async function Home() {
           message={constants.head_greetings}
         />
         <AccessSection id="access" />
-      </RedContainer>
+      </YellowContainer>
       <Navigation background="var(--background)" initiallyTransparent />
     </>
   );
