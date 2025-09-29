@@ -20,57 +20,71 @@ export default async function ShopsPage() {
     return <p>設定が正しく行われていません</p>;
   }
   return (
-    <div className="flex flex-col items-center gap-8 py-8">
-      <Heading>模擬店</Heading>
-      <section>
-        <ImagesCarousel images={constants.exhitibition_map_img} zoomable />
-      </section>
-      <section className="w-full flex flex-col items-center">
-        <div className="w-full flex flex-col items-center">
-          <div className="flex justify-center gap-4">
-            <div className="w-4 border-t border-l border-b border-foreground" />
-            <p className="text-2xl font-semibold font-serif py-2">物販</p>
-            <div className="w-4 border-t border-r border-b border-foreground" />
+    <div className="flex gap-32">
+      <div className="h-screen flex items-center sticky top-0">
+        <p className="text-[10rem] font-medium font-display">模擬店</p>
+      </div>
+      <div className="flex flex-col items-start gap-16 py-8 max-w-3xl">
+        <section>
+          <ImagesCarousel
+            images={constants.exhitibition_map_img}
+            zoomable
+            variant="primary"
+          />
+        </section>
+        <section className="w-full flex flex-col items-start">
+          <div className="w-full flex flex-col items-start">
+            <Heading>物販</Heading>
           </div>
-        </div>
-        {goodsShops.map((shop, index) => (
-          <div
-            key={shop.id + index.toString()}
-            className="w-full flex flex-col items-center gap-4 py-4"
-          >
-            <h2 className="text-xl font-bold font-serif">{shop.shop_name}</h2>
-            <p
-              // biome-ignore lint/security/noDangerouslySetInnerHtml: using private CMS
-              dangerouslySetInnerHTML={{
-                __html: `${shop.short_description.replace(/\n/g, "<br />")}`,
-              }}
-            />
+          {goodsShops.map((shop, index) => (
+            <div
+              key={shop.id + index.toString()}
+              className="w-full flex flex-col items-start gap-4 py-4"
+            >
+              <div className="flex justify-center gap-4">
+                <div className="w-4 border-t-2 border-l-2 border-b-2 border-primary-foreground" />
+                <p className="text-2xl font-semibold font-serif py-2">
+                  {shop.shop_name}
+                </p>
+                <div className="w-4 border-t-2 border-r-2 border-b-2 border-primary-foreground" />
+              </div>
+              <p
+                className="font-bold text-lg"
+                // biome-ignore lint/security/noDangerouslySetInnerHtml: using private CMS
+                dangerouslySetInnerHTML={{
+                  __html: `${shop.short_description.replace(/\n/g, "<br />")}`,
+                }}
+              />
+            </div>
+          ))}
+        </section>
+        <section className="w-full flex flex-col items-start">
+          <div className="w-full flex flex-col items-start">
+            <Heading>飲食</Heading>
           </div>
-        ))}
-      </section>
-      <section className="w-full flex flex-col items-center">
-        <div className="w-full flex flex-col items-center">
-          <div className="flex justify-center gap-4">
-            <div className="w-4 border-t border-l border-b border-foreground" />
-            <p className="text-2xl font-semibold font-serif py-2">飲食</p>
-            <div className="w-4 border-t border-r border-b border-foreground" />
-          </div>
-        </div>
-        {foodShops.map((shop, index) => (
-          <div
-            key={shop.id + index.toString()}
-            className="w-full flex flex-col items-center gap-4 py-4"
-          >
-            <h2 className="text-xl font-bold font-serif">{shop.shop_name}</h2>
-            <p
-              // biome-ignore lint/security/noDangerouslySetInnerHtml: using private CMS
-              dangerouslySetInnerHTML={{
-                __html: `${shop.short_description.replace(/\n/g, "<br />")}`,
-              }}
-            />
-          </div>
-        ))}
-      </section>
+          {foodShops.map((shop, index) => (
+            <div
+              key={shop.id + index.toString()}
+              className="w-full flex flex-col items-start gap-4 py-4"
+            >
+              <div className="flex justify-center gap-4">
+                <div className="w-4 border-t-2 border-l-2 border-b-2 border-primary-foreground" />
+                <p className="text-2xl font-semibold font-serif py-2">
+                  {shop.shop_name}
+                </p>
+                <div className="w-4 border-t-2 border-r-2 border-b-2 border-primary-foreground" />
+              </div>
+              <p
+                className="font-bold text-lg"
+                // biome-ignore lint/security/noDangerouslySetInnerHtml: using private CMS
+                dangerouslySetInnerHTML={{
+                  __html: `${shop.short_description.replace(/\n/g, "<br />")}`,
+                }}
+              />
+            </div>
+          ))}
+        </section>
+      </div>
     </div>
   );
 }

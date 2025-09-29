@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-function YellowContainer({
+function RedContainer({
   children,
   className,
   id,
@@ -67,15 +67,15 @@ function YellowContainer({
       );
     },
     { scope: scope },
-  );
+  ); // <-- scope is for selector text (optional)
   return (
     <section
-      className={`w-full text-tertiary-foreground flex flex-col items-center justify-center mx-auto relative ${className}`}
+      className={`w-full flex flex-col items-center justify-center mx-auto relative ${className}`}
       id={id}
       ref={scope}
     >
       {children}
-      <div className="bg-tertiary fixed top-0 h-full max-h-screen w-full -z-10 overflow-hidden">
+      <div className="fixed top-0 h-full max-h-screen w-full -z-10 overflow-hidden">
         <Image
           src="/assets/dot-pattern-blue.svg"
           alt="テーマイラスト"
@@ -137,11 +137,11 @@ function YellowContainer({
           alt="テーマイラスト"
           width={200}
           height={200}
-          className="gsap-lg absolute left-0 bottom-0 w-[25%] md:w-[10%] -z-10 translate-x-[30%] md:translate-x-[140%] -translate-y-[60%]"
+          className="gsap-lg absolute left-0 bottom-0 w-[25%] md:w-[10%] -z-10 translate-x-[30%]"
         />
       </div>
     </section>
   );
 }
 
-export { YellowContainer };
+export { RedContainer };

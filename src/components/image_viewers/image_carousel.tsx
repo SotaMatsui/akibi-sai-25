@@ -2,8 +2,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import type { MicroCMSImage } from "microcms-js-sdk";
 import Image from "next/image";
@@ -12,14 +10,23 @@ import { ZoomImage } from "./zoom_image";
 function ImagesCarousel({
   images,
   zoomable = false,
+  variant = "white",
 }: {
   images: MicroCMSImage[];
   zoomable?: boolean;
+  variant?: "white" | "primary" | "secondary" | "tertiary";
 }) {
+  const colorVariables = {
+    white: "var(--color-white)",
+    primary: "var(--color-primary)",
+    secondary: "var(--color-secondary)",
+    tertiary: "var(--color-tertiary)",
+  };
+  const mixedColor = `color-mix(in_oklab,black,${colorVariables[variant]}_95%)`;
   return (
     <Carousel
       opts={{ loop: true }}
-      className="flex flex-col items-center border border-foreground"
+      className={`flex flex-col items-center bg-[${mixedColor}] rounded-2xl overflow-hidden`}
     >
       <CarouselContent>
         {images.map((image: MicroCMSImage, index: number) => (
@@ -40,11 +47,6 @@ function ImagesCarousel({
           </CarouselItem>
         ))}
       </CarouselContent>
-      <div className="w-full flex border-t border-foreground">
-        <CarouselPrevious className="static translate-none rounded-none border-none hover:bg-foreground" />
-        <div className="col-start-2 row-span-5 row-start-1 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--foreground)] max-lg:hidden grow" />
-        <CarouselNext className="static translate-none rounded-none border-none hover:bg-foreground" />
-      </div>
     </Carousel>
   );
 }

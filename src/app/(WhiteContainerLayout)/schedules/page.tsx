@@ -25,7 +25,11 @@ export default async function SchedulePage() {
     <div className="flex flex-col items-center gap-8 py-8">
       <Heading>タイムスケジュール</Heading>
       <section>
-        <ImagesCarousel images={constants.timeschedule_img} zoomable />
+        <ImagesCarousel
+          images={constants.timeschedule_img}
+          zoomable
+          variant="white"
+        />
       </section>
     </div>
   );

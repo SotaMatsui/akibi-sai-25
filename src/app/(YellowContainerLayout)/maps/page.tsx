@@ -13,7 +13,11 @@ export default async function MapPage() {
     <div className="flex flex-col items-center gap-8 py-8">
       <Heading>マップ</Heading>
       <section>
-        <ImagesCarousel images={constants.map_img} zoomable />
+        <ImagesCarousel
+          images={constants.map_img}
+          zoomable
+          variant="tertiary"
+        />
       </section>
     </div>
   );
