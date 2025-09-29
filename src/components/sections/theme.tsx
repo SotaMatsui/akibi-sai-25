@@ -31,14 +31,14 @@ function ThemeSection({
   );
 
   return (
-    <div className={`py-32 md:pb-96 ${className}`} id={id} ref={scope}>
-      <div className="hidden md:flex min-h-screen w-full justify-center items-center">
+    <div className={`py-32 lg:pb-96 ${className}`} id={id} ref={scope}>
+      <div className="hidden lg:flex min-h-screen w-full justify-center items-center">
         <div className="flex gap-16">
           <div className="gsap-pin flex flex-col items-end gap-2 py-2">
             <h2 className="bg-foreground text-background w-fit font-serif font-bold py-4 text-5xl leading-[0.3]">
               2025年度テーマ
             </h2>
-            <h1 className="text-end font-display font-medium text-[16rem] leading-none">
+            <h1 className="text-end font-display font-medium text-[10rem] xl:text-[12rem] 2xl:text-[16rem] leading-none">
               異世界の
               <br />
               お祭り
@@ -58,7 +58,7 @@ function ThemeSection({
           </div>
         </div>
       </div>
-      <div className="flex md:hidden min-h-screen w-full justify-center items-center">
+      <div className="flex lg:hidden min-h-screen w-full justify-center items-center">
         <div>
           <div className="flex flex-col items-end gap-2 py-2">
             <h2 className="bg-foreground text-background w-fit font-serif font-bold py-4 text-2xl leading-[0.3]">
