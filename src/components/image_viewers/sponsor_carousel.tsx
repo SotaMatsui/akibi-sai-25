@@ -27,7 +27,7 @@ function SponsorCarousel({ images }: { images: MicroCMSImage[] }) {
                 alt={image.alt ?? "スポンサー画像"}
                 width={image.width ?? 100}
                 height={image.height ?? 100}
-                className="h-32 w-auto"
+                className="h-32 w-auto bg-white"
               />
             </div>
           </CarouselItem>
