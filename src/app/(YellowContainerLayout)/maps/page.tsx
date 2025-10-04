@@ -10,11 +10,12 @@ export default async function MapPage() {
     return <p>設定が正しく行われていません</p>;
   }
   return (
-    <div className="flex gap-32">
-      <div className="h-screen flex items-center sticky top-0">
+    <div className="xl:flex gap-32">
+      <div className="h-screen hidden xl:flex items-center sticky top-0">
         <p className="text-[10rem] font-medium font-display">マップ</p>
       </div>
-      <div className="min-h-screen flex flex-col items-center justify-center gap-16 py-8 max-w-3xl">
+      <p className="xl:hidden text-7xl font-medium font-display py-8">マップ</p>
+      <div className="xl:min-h-screen flex flex-col items-center justify-center gap-16 py-8 max-w-3xl">
         <section>
           <ImagesCarousel
             images={constants.map_img}

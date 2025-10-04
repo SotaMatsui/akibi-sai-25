@@ -21,10 +21,11 @@ export default async function ShopsPage() {
     return <p>設定が正しく行われていません</p>;
   }
   return (
-    <div className="flex gap-32">
-      <div className="h-screen flex items-center sticky top-0">
+    <div className="xl:flex gap-32">
+      <div className="h-screen hidden xl:flex items-center sticky top-0">
         <p className="text-[10rem] font-medium font-display">模擬店</p>
       </div>
+      <p className="xl:hidden text-7xl font-medium font-display py-8">模擬店</p>
       <div className="flex flex-col items-start gap-16 py-8 max-w-3xl">
         <section>
           <ImagesCarousel
@@ -38,7 +39,10 @@ export default async function ShopsPage() {
             <Heading>物販</Heading>
           </div>
           {goodsShops.map((shop, index) => (
-            <div className="flex gap-4 py-4" key={shop.id + index.toString()}>
+            <div
+              className="flex flex-col xl:flex-row gap-4 py-4"
+              key={shop.id + index.toString()}
+            >
               <Image
                 src={shop.icon_img?.url ?? "/logo.png"}
                 alt={shop.shop_name}
@@ -70,7 +74,10 @@ export default async function ShopsPage() {
             <Heading>飲食</Heading>
           </div>
           {foodShops.map((shop, index) => (
-            <div className="flex gap-4 py-4" key={shop.id + index.toString()}>
+            <div
+              className="flex flex-col xl:flex-row gap-4 py-4"
+              key={shop.id + index.toString()}
+            >
               <Image
                 src={shop.icon_img?.url ?? "/logo.png"}
                 alt={shop.shop_name}

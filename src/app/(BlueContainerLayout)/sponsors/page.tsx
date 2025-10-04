@@ -29,12 +29,13 @@ export default async function SponsorPage() {
     return <p>設定が正しく行われていません</p>;
   }
   return (
-    <div className="flex gap-32">
-      <div className="grow h-screen flex items-center sticky top-0">
+    <div className="xl:flex gap-32">
+      <div className="grow h-screen hidden xl:flex items-center sticky top-0">
         <p className="text-[10rem] text-nowrap font-medium font-display">
           協賛
         </p>
       </div>
+      <p className="xl:hidden text-7xl font-medium font-display py-8">協賛</p>
       <section>
         <div className="flex flex-wrap gap-4 max-w-[67rem]">
           {[...data.sponsors_higher, ...data.sponsors_normal].map(
@@ -48,7 +49,7 @@ export default async function SponsorPage() {
                   alt={sponsor.alt ?? "スポンサー画像"}
                   width={sponsor.width ?? 100}
                   height={sponsor.height ?? 100}
-                  className="h-64 w-auto"
+                  className="h-32 xl:h-64 w-auto"
                 />
               </div>
             ),

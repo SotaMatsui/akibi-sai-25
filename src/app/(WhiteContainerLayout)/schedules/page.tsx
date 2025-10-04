@@ -25,14 +25,19 @@ export default async function SchedulePage() {
     return <p>設定が正しく行われていません</p>;
   }
   return (
-    <div className="flex gap-32">
-      <div className="h-screen flex items-center sticky top-0">
+    <div className="xl:flex gap-32">
+      <div className="h-screen hidden xl:flex items-center sticky top-0">
         <p className="text-[6rem] leading-[6rem] font-medium font-display">
           イベント
           <br />
           スケジュール
         </p>
       </div>
+      <p className="xl:hidden text-5xl font-medium font-display py-8">
+        イベント
+        <br />
+        スケジュール
+      </p>
       <div className="flex flex-col items-start gap-16 py-8 max-w-3xl">
         <section>
           <ImagesCarousel
@@ -41,7 +46,7 @@ export default async function SchedulePage() {
             variant="white"
           />
         </section>
-        <section className="w-full mx-auto max-w-5xl flex flex-col items-center *:not-last:border-b *:border-foreground">
+        <section className="w-full mx-auto max-w-5xl flex flex-col items-center gap-16">
           {events.contents.map(
             (
               event: {
@@ -73,7 +78,7 @@ export default async function SchedulePage() {
                   dangerouslySetInnerHTML={{
                     __html: `${event.description.replace(/\n/g, "<br />")}`,
                   }}
-                  className="font-medium"
+                  className="font-bold text-lg"
                 />
               </div>
             ),
