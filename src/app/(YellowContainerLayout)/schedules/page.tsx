@@ -27,7 +27,7 @@ export default async function SchedulePage() {
   return (
     <div className="xl:flex gap-32">
       <div className="h-screen hidden xl:flex items-center sticky top-0">
-        <p className="text-[6rem] leading-[6rem] font-medium font-display">
+        <p className="text-[4rem] 2xl:text-[6rem] leading-[4rem] 2xl:leading-[6rem] font-medium font-display text-nowrap">
           イベント
           <br />
           スケジュール
@@ -55,7 +55,7 @@ export default async function SchedulePage() {
                 name: string;
                 description: string;
               },
-              index: number,
+              index: number
             ) => (
               <div
                 key={event.id + index.toString()}
@@ -81,7 +81,7 @@ export default async function SchedulePage() {
                   className="font-bold text-lg"
                 />
               </div>
-            ),
+            )
           )}
         </section>
       </div>
