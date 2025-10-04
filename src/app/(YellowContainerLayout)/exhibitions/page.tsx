@@ -1,61 +1,18 @@
-import { Heading } from "@/components/headings/heading";
-import { ImagesCarousel } from "@/components/image_viewers/image_carousel";
-import { client } from "@/lib/microcms";
-import type { MicroCMSImage } from "microcms-js-sdk";
-
-export default async function ExhibitionsPage() {
-  const constants = await client.get({
-    endpoint: "constants",
-  });
-  const exhibitions = await client.getList({
-    endpoint: "exhibitions",
-  });
-  if (!constants || !exhibitions) {
-    return <p>設定が正しく行われていません</p>;
-  }
+export default function ExhibitionsPage() {
   return (
-    <div className="flex flex-col items-center gap-8 py-8">
-      <Heading>展示</Heading>
-      <section>
-        <ImagesCarousel
-          images={constants.exhitibition_map_img}
-          zoomable
-          variant="tertiary"
-        />
-      </section>
-      <section className="w-full flex flex-col items-center *:not-last:border-b *:border-foreground">
-        {exhibitions.contents.map(
-          (
-            exhibition: {
-              display_id: number;
-              title: string;
-              images: MicroCMSImage[];
-              description: string;
-            },
-            index: number,
-          ) => (
-            <div
-              key={exhibition.display_id + index.toString()}
-              className="w-full flex flex-col items-center gap-4 py-4"
-            >
-              <div className="w-full flex flex-col items-center">
-                <p className="font-bold text-lg tabular-nums aspect-square rounded-full text-center translate-y-3">
-                  {String(exhibition.display_id).padStart(2, "0")}
-                </p>
-                <div className="flex justify-center gap-4">
-                  <div className="w-4 border-t-2 border-l-2 border-b-2 border-tertiary-foreground" />
-                  <p className="text-2xl font-semibold font-serif py-2">
-                    {exhibition.title}
-                  </p>
-                  <div className="w-4 border-t-2 border-r-2 border-b-2 border-tertiary-foreground" />
-                </div>
-              </div>
-              <ImagesCarousel images={exhibition.images} variant="tertiary" />
-              <p>{exhibition.description}</p>
-            </div>
-          ),
-        )}
-      </section>
+    <div className="xl:flex gap-32">
+      <div className="h-screen hidden xl:flex items-center sticky top-0">
+        <p className="text-[10rem] font-medium font-display">展示</p>
+      </div>
+      <p className="xl:hidden text-7xl font-medium font-display py-8">展示</p>
+      <div className="xl:min-h-screen flex flex-col items-center justify-center gap-16 py-8 max-w-3xl">
+        <section>
+          <p>
+            展示に関する詳細は、学生の個人情報保護の観点から
+            当日受付で配布します。
+          </p>
+        </section>
+      </div>
     </div>
   );
 }
