@@ -6,4 +6,5 @@ export type Shop = {
   short_description?: string;
   long_description: string;
   icon_img?: MicroCMSImage;
+  menu?: string;
 };
