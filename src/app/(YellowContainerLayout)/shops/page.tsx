@@ -29,7 +29,7 @@ export default async function ShopsPage() {
       <div className="flex flex-col items-start gap-16 py-8 max-w-3xl">
         <section>
           <ImagesCarousel
-            images={constants.exhitibition_map_img}
+            images={constants.shop_map_img}
             zoomable
             variant="primary"
           />
