@@ -46,8 +46,8 @@ export default async function ShopsPage() {
               <Image
                 src={shop.icon_img?.url ?? "/logo.png"}
                 alt={shop.shop_name}
-                width={64}
-                height={64}
+                width={256}
+                height={256}
                 className="size-32 object-cover rounded-lg border-2 border-primary-foreground flex-shrink-0"
               />
               <div className="w-full flex flex-col items-start gap-4">
