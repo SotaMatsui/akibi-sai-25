@@ -8,13 +8,13 @@ export default async function ShopsPage() {
   const constants = await client.get({
     endpoint: "constants",
   });
-  const allShops = await client.getList<Shop>({
+  const allShops = await client.getAllContents<Shop>({
     endpoint: "shops",
   });
-  const goodsShops = allShops.contents.filter(
+  const goodsShops = allShops.filter(
     (shop) => shop.category[0] === "goods",
   );
-  const foodShops = allShops.contents.filter(
+  const foodShops = allShops.filter(
     (shop) => shop.category[0] === "food",
   );
   if (!constants || !allShops) {
