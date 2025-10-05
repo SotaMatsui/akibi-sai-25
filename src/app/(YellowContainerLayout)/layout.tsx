@@ -12,7 +12,7 @@ export default function RootLayout({
         <MobileNavigation />
       </div>
       <YellowContainer>
-        <div className="p-5 min-h-screen">{children}</div>
+        <div className="p-5 min-h-screen w-full xl:w-auto">{children}</div>
       </YellowContainer>
       <Navigation
         background="var(--tertiary)"

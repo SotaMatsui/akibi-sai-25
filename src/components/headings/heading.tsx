@@ -7,7 +7,7 @@ function Heading({
 }: {
   children: React.ReactNode;
   className?: string;
-  side?: "left" | "right" | "both";
+  side?: "left" | "right" | "both" | "none";
 }) {
   return (
     <div

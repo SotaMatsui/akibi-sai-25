@@ -1,6 +1,5 @@
-import { Heading } from "@/components/headings/heading";
-import { ImagesCarousel } from "@/components/image_viewers/image_carousel";
 import { client } from "@/lib/microcms";
+import Image from "next/image";
 
 export default async function MapPage() {
   const constants = await client.get({
@@ -12,17 +11,17 @@ export default async function MapPage() {
   return (
     <div className="xl:flex gap-32">
       <div className="h-screen hidden xl:flex items-center sticky top-0">
-        <p className="text-[10rem] font-medium font-display">マップ</p>
+        <p className="text-[5rem] 2xl:text-[7rem] font-medium font-display">マップ</p>
       </div>
       <p className="xl:hidden text-7xl font-medium font-display py-8">マップ</p>
-      <div className="xl:min-h-screen flex flex-col items-center justify-center gap-16 py-8 max-w-3xl">
-        <section>
-          <ImagesCarousel
-            images={constants.map_img}
-            zoomable
-            variant="tertiary"
-          />
-        </section>
+      <div className="xl:min-h-screen flex flex-col items-center justify-center gap-16 py-8 max-w-5xl">
+        <Image
+          src="/assets/map.svg"
+          alt="マップ"
+          width={1280}
+          height={1024}
+          className="w-full h-auto xl:w-auto xl:min-h-[90vh]"
+        />
       </div>
     </div>
   );
