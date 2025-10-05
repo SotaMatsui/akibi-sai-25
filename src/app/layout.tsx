@@ -3,7 +3,6 @@ import { Kaisei_Opti, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
 import TypekitLoader from "@/components/adobeFonts";
-import { Navigation } from "@/components/nav";
 import SmoothScroller from "@/components/lenis";
 
 const kaisei = Kaisei_Opti({
@@ -30,6 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="apple-mobile-web-app-title" content="あきび祭2025" />
+      </head>
       <TypekitLoader />
       <body className={`${notoSansJp.variable} ${kaisei.variable} antialiased`}>
         <SmoothScroller />
