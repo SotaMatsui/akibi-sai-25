@@ -16,7 +16,7 @@ import { useRef } from "react";
 
 function MenuSheetContent() {
   return (
-    <SheetContent className="rounded-l-3xl border-0 bg-foreground text-primary">
+    <SheetContent className="rounded-l-3xl border-0 bg-popover text-popover-foreground">
       <SheetTitle className="font-bold text-lg mb-4 sr-only">
         あきび祭2025
       </SheetTitle>
@@ -35,7 +35,7 @@ function MenuSheetContent() {
             トップ (開催概要)
           </Link>
         </li>
-        <div className="flex flex-col gap-4 ml-2 pl-4 mb-2 pb-4 border-l-2 border-b-2 border-primary rounded-bl-lg">
+        <div className="flex flex-col gap-4 ml-2 pl-4 mb-2 pb-4 border-l-2 border-b-2 border-popover-foreground rounded-bl-lg">
           <li>
             <Link href="/#head-message" className="hover:opacity-50">
               ごあいさつ

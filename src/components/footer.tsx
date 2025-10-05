@@ -23,7 +23,7 @@ async function Footer() {
     return null;
   }
   return (
-    <footer className="z-10 relative w-full text-center text-primary bg-slate-950">
+    <footer className="z-10 relative w-full text-center text-popover-foreground bg-slate-950">
       <section className="bg-slate-900 py-8 space-y-4">
         <h2 className="text-md font-bold font-serif">協賛</h2>
         <SponsorCarousel images={data.sponsors_higher} />
@@ -35,7 +35,7 @@ async function Footer() {
             <li>
               <Link href="/">トップ (開催概要)</Link>
             </li>
-            <div className="flex flex-col gap-4 ml-2 pl-4 mb-2 pb-4 border-l-2 border-b-2 border-primary rounded-bl-lg">
+            <div className="flex flex-col gap-4 ml-2 pl-4 mb-2 pb-4 border-l-2 border-b-2 border-popover-foreground rounded-bl-lg">
               <li>
                 <Link href="/#head-message">ごあいさつ</Link>
               </li>
