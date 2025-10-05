@@ -1,29 +1,12 @@
-import { Heading } from "@/components/headings/heading";
-import { ImagesCarousel } from "@/components/image_viewers/image_carousel";
+import TimeTable from "@/components/timetable";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { client } from "@/lib/microcms";
-import type { MicroCMSImage } from "microcms-js-sdk";
-
-const hasScheduleImages = (
-  data: object,
-): data is { timeschedule_img: MicroCMSImage[] } => {
-  return (
-    "timeschedule_img" in data &&
-    Array.isArray(data.timeschedule_img) &&
-    data.timeschedule_img.length > 0 &&
-    "url" in data.timeschedule_img[0]
-  );
-};
+import type { Schedule } from "@/types/schedule";
 
 export default async function SchedulePage() {
-  const constants = await client.get({
-    endpoint: "constants",
-  });
-  const events = await client.getList({
+  const events = await client.getAllContents<Schedule>({
     endpoint: "events",
   });
-  if (!constants || !hasScheduleImages(constants) || !events) {
-    return <p>設定が正しく行われていません</p>;
-  }
   return (
     <div className="xl:flex gap-32">
       <div className="h-screen hidden xl:flex items-center sticky top-0">
@@ -38,52 +21,23 @@ export default async function SchedulePage() {
         <br />
         スケジュール
       </p>
-      <div className="flex flex-col items-start gap-16 py-8 max-w-3xl">
-        <section>
-          <ImagesCarousel
-            images={constants.timeschedule_img}
-            zoomable
-            variant="white"
-          />
-        </section>
-        <section className="w-full mx-auto max-w-5xl flex flex-col items-center gap-16">
-          {events.contents.map(
-            (
-              event: {
-                id: string;
-                organization: string;
-                name: string;
-                description: string;
-              },
-              index: number
-            ) => (
-              <div
-                key={event.id + index.toString()}
-                className="w-full flex flex-col items-start gap-4 py-4"
-              >
-                <div className="w-full flex flex-col items-start">
-                  <div className="flex justify-center gap-4 relative">
-                    <div className="w-4 border-t-2 border-l-2 border-b-2 border-tertiary-foreground" />
-                    <p className="absolute top-0 w-full font-bold text-lg tabular-nums rounded-full text-center -translate-y-5">
-                      {String(index).padStart(2, "0")}
-                    </p>
-                    <p className="text-2xl font-semibold font-serif py-2">
-                      {event.name}
-                    </p>
-                    <div className="w-4 border-t-2 border-r-2 border-b-2 border-tertiary-foreground" />
-                  </div>
-                </div>
-                <p
-                  // biome-ignore lint/security/noDangerouslySetInnerHtml: using private CMS
-                  dangerouslySetInnerHTML={{
-                    __html: `${event.description.replace(/\n/g, "<br />")}`,
-                  }}
-                  className="font-bold text-lg"
-                />
-              </div>
-            )
-          )}
-        </section>
+      <div className="flex flex-col items-start justify-center gap-16 py-8 max-w-3xl">
+        <Tabs defaultValue="day1">
+          <TabsList className="w-full max-w-3xl mx-auto grid grid-cols-2">
+            <TabsTrigger value="day1">1日目</TabsTrigger>
+            <TabsTrigger value="day2">2日目</TabsTrigger>
+          </TabsList>
+          <TabsContent value="day1">
+            <TimeTable
+              events={events.filter((event) => event.days.includes("1"))}
+            />
+          </TabsContent>
+          <TabsContent value="day2">
+            <TimeTable
+              events={events.filter((event) => event.days.includes("2"))}
+            />
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );

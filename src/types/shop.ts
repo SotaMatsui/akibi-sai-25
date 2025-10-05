@@ -1,4 +1,4 @@
-import { MicroCMSImage } from "microcms-js-sdk";
+import type { MicroCMSImage } from "microcms-js-sdk";
 
 export type Shop = {
   category: ["food" | "goods"];
