@@ -1,4 +1,3 @@
-import { Heading } from "@/components/headings/heading";
 import { client } from "@/lib/microcms";
 import type { MicroCMSImage } from "microcms-js-sdk";
 import Image from "next/image";
@@ -49,7 +48,7 @@ export default async function SponsorPage() {
                   alt={sponsor.alt ?? "スポンサー画像"}
                   width={sponsor.width ?? 100}
                   height={sponsor.height ?? 100}
-                  className="h-32 xl:h-64 w-auto"
+                  className="h-32 xl:h-64 w-auto bg-white"
                 />
               </div>
             ),
