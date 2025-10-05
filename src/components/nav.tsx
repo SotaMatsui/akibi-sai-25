@@ -1,11 +1,5 @@
 "use client";
 
-import {
-  Sheet,
-  SheetContent,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 import { MenuIcon, XIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,10 +9,22 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, useState } from "react";
 import { Button } from "./ui/button";
 
-function MenuSheetContent({className, onPageTransition, onClose}: {className?: string; onPageTransition?: () => void; onClose?: () => void}) {
+function MenuSheetContent({
+  className,
+  onPageTransition,
+  onClose,
+}: {
+  className?: string;
+  onPageTransition?: () => void;
+  onClose?: () => void;
+}) {
   return (
     <div
-      className={`fixed w-full h-screen top-0 left-0 border-0 bg-popover/90 text-popover-foreground transition duration-500 ${className}`}
+      style={{
+        backgroundImage:
+          "linear-gradient(to bottom, var(--popover), color-mix(in oklab, var(--popover) 70%, transparent), var(--popover))",
+      }}
+      className={`fixed w-full h-screen top-0 left-0 border-0 text-popover-foreground transition duration-500 ${className}`}
     >
       <XIcon
         className="absolute top-8 right-8 size-8 stroke-1 hover:opacity-50"
@@ -151,10 +157,10 @@ function Navigation({
             start: "bottom bottom",
             toggleActions: "play none none reset",
           },
-        },
+        }
       );
     },
-    { scope: scope },
+    { scope: scope }
   );
   return (
     <div
@@ -202,6 +208,21 @@ function Navigation({
 
 function MobileNavigation({ className }: { className?: string }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleMenuToggle = () => {
+    if (isOpen) {
+      setIsVisible(false);
+      setTimeout(() => {
+        setIsOpen(false);
+      }, 500);
+    } else {
+      setIsOpen(true);
+      setTimeout(() => {
+        setIsVisible(true);
+      }, 10);
+    }
+  };
   return (
     <nav
       className={`flex justify-between items-center gap-4 bg-foreground text-background rounded-xl px-4 font-bold text-sm ${className}`}
@@ -215,14 +236,20 @@ function MobileNavigation({ className }: { className?: string }) {
           className="pb-2"
         />
       </Link>
-      <Button variant="ghost" className="p-2" onClick={() => setIsOpen(true)}>
+      <Button variant="ghost" className="p-2" onClick={handleMenuToggle}>
         <MenuIcon />
       </Button>
-      <MenuSheetContent
-        className={isOpen ? "opacity-100 backdrop-blur-md" : "opacity-0 pointer-events-none"}
-        onPageTransition={() => setIsOpen(false)}
-        onClose={() => setIsOpen(false)}
-      />
+      {isOpen && (
+        <MenuSheetContent
+          className={
+            isVisible
+              ? "opacity-100 backdrop-blur-md"
+              : "opacity-0 pointer-events-none"
+          }
+          onPageTransition={handleMenuToggle}
+          onClose={handleMenuToggle}
+        />
+      )}
     </nav>
   );
 }

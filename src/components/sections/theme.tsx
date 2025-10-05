@@ -60,7 +60,7 @@ function ThemeSection({
       </div>
       <div className="flex lg:hidden min-h-screen w-full justify-center items-center">
         <div>
-          <div className="flex flex-col items-end gap-2 py-2">
+          <div className="flex flex-col items-end gap-2 py-2 px-6 md:px-0">
             <h2 className="bg-foreground text-background w-fit font-serif font-bold py-4 text-2xl leading-[0.3]">
               2025年度テーマ
             </h2>

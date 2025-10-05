@@ -49,7 +49,7 @@ export default async function Home() {
       <YellowContainer className="[&>div]:min-h-screen">
         <ThemeSection id="theme" themeMessage={constants.theme} />
         <HeadMessageSection
-          id="headMessage"
+          id="head-message"
           name={constants.head_name}
           message={constants.head_greetings}
         />
