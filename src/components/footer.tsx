@@ -72,6 +72,22 @@ async function Footer() {
         </div>
         <p className="font-serif">&copy; 2025年度あきび祭実行委員会</p>
       </section>
+      <div className="w-full bg-[oklch(0.96_0.02_80.58)]">
+        <section className="flex flex-col items-start md:flex-row md:items-center gap-4 justify-between w-full max-w-7xl mx-auto text-end py-6 px-3">
+          <Image src="/winc/logo.svg" alt="Logo" width={160} height={64} />
+          <p className="text-end text-sm text-gray-400">
+            このウェブサイトは、早稲田大学コンピューター研究会(WINC)との共同プロジェクトとして制作されました。
+            <br />
+            WINCではサークルや学生団体に対して無償でWebサイトを制作・提供をしています。
+            <br />
+            詳しくは
+            <a href="https://winc.ne.jp" className="underline">
+              https://winc.ne.jp
+            </a>
+            をご覧ください。
+          </p>
+        </section>
+      </div>
     </footer>
   );
 }

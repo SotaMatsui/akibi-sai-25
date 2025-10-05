@@ -6,21 +6,25 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { MenuIcon } from "lucide-react";
+import { MenuIcon, XIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { Button } from "./ui/button";
 
-function MenuSheetContent() {
+function MenuSheetContent({className, onPageTransition, onClose}: {className?: string; onPageTransition?: () => void; onClose?: () => void}) {
   return (
-    <SheetContent className="rounded-l-3xl border-0 bg-popover text-popover-foreground">
-      <SheetTitle className="font-bold text-lg mb-4 sr-only">
-        あきび祭2025
-      </SheetTitle>
-      <ul className="flex flex-col gap-4 pt-4 pb-8 px-8 font-bold text-sm">
+    <div
+      className={`fixed w-full h-screen top-0 left-0 border-0 bg-popover/90 text-popover-foreground transition duration-500 ${className}`}
+    >
+      <XIcon
+        className="absolute top-8 right-8 size-8 stroke-1 hover:opacity-50"
+        onClick={onClose}
+      />
+      <ul className="flex flex-col gap-4 pt-16 pb-8 px-8 font-bold text-sm">
         <div className="w-full flex items-center justify-center py-8 pr-8">
           <Image src="/logo.png" alt="Logo" width={64} height={64} />
           <Image
@@ -31,54 +35,90 @@ function MenuSheetContent() {
           />
         </div>
         <li>
-          <Link href="/" className="hover:opacity-50">
+          <Link
+            href="/"
+            className="hover:opacity-50"
+            onClick={onPageTransition}
+          >
             トップ (開催概要)
           </Link>
         </li>
         <div className="flex flex-col gap-4 ml-2 pl-4 mb-2 pb-4 border-l-2 border-b-2 border-popover-foreground rounded-bl-lg">
           <li>
-            <Link href="/#head-message" className="hover:opacity-50">
+            <Link
+              href="/#head-message"
+              className="hover:opacity-50"
+              onClick={onPageTransition}
+            >
               ごあいさつ
             </Link>
           </li>
           <li>
-            <Link href="/#theme" className="hover:opacity-50">
+            <Link
+              href="/#theme"
+              className="hover:opacity-50"
+              onClick={onPageTransition}
+            >
               2025年度テーマ「異世界のお祭り」
             </Link>
           </li>
           <li>
-            <Link href="/#access" className="hover:opacity-50">
+            <Link
+              href="/#access"
+              className="hover:opacity-50"
+              onClick={onPageTransition}
+            >
               アクセス
             </Link>
           </li>
         </div>
         <li>
-          <Link href="/maps" className="hover:opacity-50">
+          <Link
+            href="/maps"
+            className="hover:opacity-50"
+            onClick={onPageTransition}
+          >
             マップ
           </Link>
         </li>
         <li>
-          <Link href="/schedules" className="hover:opacity-50">
+          <Link
+            href="/schedules"
+            className="hover:opacity-50"
+            onClick={onPageTransition}
+          >
             イベントスケジュール
           </Link>
         </li>
         <li>
-          <Link href="/shops" className="hover:opacity-50">
+          <Link
+            href="/shops"
+            className="hover:opacity-50"
+            onClick={onPageTransition}
+          >
             模擬店
           </Link>
         </li>
         <li>
-          <Link href="/exhibitions" className="hover:opacity-50">
+          <Link
+            href="/exhibitions"
+            className="hover:opacity-50"
+            onClick={onPageTransition}
+          >
             展示
           </Link>
         </li>
         <li>
-          <Link href="/sponsors" className="hover:opacity-50">
+          <Link
+            href="/sponsors"
+            className="hover:opacity-50"
+            onClick={onPageTransition}
+          >
             協賛
           </Link>
         </li>
       </ul>
-    </SheetContent>
+    </div>
   );
 }
 function Navigation({
@@ -161,6 +201,7 @@ function Navigation({
 }
 
 function MobileNavigation({ className }: { className?: string }) {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <nav
       className={`flex justify-between items-center gap-4 bg-foreground text-background rounded-xl px-4 font-bold text-sm ${className}`}
@@ -174,17 +215,14 @@ function MobileNavigation({ className }: { className?: string }) {
           className="pb-2"
         />
       </Link>
-      <Sheet>
-        <SheetTrigger>
-          <MenuIcon />
-        </SheetTrigger>
-        <SheetContent className="bg-foreground">
-          <SheetTitle className="font-bold text-lg mb-4 sr-only">
-            あきび祭2025
-          </SheetTitle>
-          <MenuSheetContent />
-        </SheetContent>
-      </Sheet>
+      <Button variant="ghost" className="p-2" onClick={() => setIsOpen(true)}>
+        <MenuIcon />
+      </Button>
+      <MenuSheetContent
+        className={isOpen ? "opacity-100 backdrop-blur-md" : "opacity-0 pointer-events-none"}
+        onPageTransition={() => setIsOpen(false)}
+        onClose={() => setIsOpen(false)}
+      />
     </nav>
   );
 }

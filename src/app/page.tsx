@@ -36,9 +36,9 @@ export default async function Home() {
               height={1677 / 2}
             />
           </div>
-          <div className="md:hidden absolute bottom-0 w-full px-16 translate-y-16">
+          <div className="md:hidden absolute bottom-0 w-full px-16 translate-y-24">
             <Image
-              src="/logotype.svg"
+              src="/text-logo-colored.svg"
               alt="あきび祭2025ロゴ"
               width={1030 / 2}
               height={1677 / 2}
