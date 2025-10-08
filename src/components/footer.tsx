@@ -55,13 +55,10 @@ async function Footer() {
               <Link href="/shops">模擬店</Link>
             </li>
             <li>
-              <Link href="/events">イベント</Link>
+              <Link href="/schedules">イベントスケジュール</Link>
             </li>
           </ul>
           <ul className="space-y-4">
-            <li>
-              <Link href="/schedules">タイムスケジュール</Link>
-            </li>
             <li>
               <Link href="/maps">マップ</Link>
             </li>
