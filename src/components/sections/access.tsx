@@ -64,7 +64,7 @@ function AccessSection({ className, id }: { className?: string; id?: string }) {
           <div className="w-0 min-w-0 ">
             <iframe
               title="秋田公立美術大学へのアクセス"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d98252.72287360409!2d140.00848009334052!3d39.68576368169728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8fc39c48cfd6bb%3A0x5fe0cc54f10a8f6a!2sAkita%20University%20of%20Art!5e0!3m2!1sen!2sjp!4v1757680924449!5m2!1sen!2sjp"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3070.396112670887!2d140.08830607649836!3d39.68579689980126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8fc39c48cfd6bb%3A0x5fe0cc54f10a8f6a!2z56eL55Sw5YWs56uL576O6KGT5aSn5a2m!5e0!3m2!1sja!2sjp!4v1759910921868!5m2!1sja!2sjp"
               loading="lazy"
               className="w-xl max-w-2xl aspect-[4/3] border-0 rounded-3xl mt-8 z-10"
             ></iframe>
