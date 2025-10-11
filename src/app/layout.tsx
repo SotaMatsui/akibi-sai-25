@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Kaisei_Opti, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
@@ -37,6 +38,7 @@ export default function RootLayout({
         <SmoothScroller />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
